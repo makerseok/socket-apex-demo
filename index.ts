@@ -1,10 +1,10 @@
-import express from 'express';
+import express, { Express, Request, Response } from 'express';
 import http from 'http';
 import socketio from 'socket.io';
 
-const app = express.default();
+const app = express();
 
-app.get('/', (_req, res) => {
+app.get('/', (_req: Request, res: Response) => {
   res.send({ uptime: process.uptime() });
 });
 

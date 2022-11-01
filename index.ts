@@ -1,8 +1,11 @@
 import express, { Express, Request, Response } from 'express';
 import http from 'http';
 import socketio from 'socket.io';
+import cors from 'cors';
 
 const app = express();
+
+app.use(cors());
 
 app.get('/', (_req: Request, res: Response) => {
   res.send({ uptime: process.uptime() });

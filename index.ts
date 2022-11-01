@@ -20,7 +20,12 @@ app.get('/', (_req: Request, res: Response) => {
 
 const httpsServer = https.createServer({ key, cert }, app);
 
-const io = new socketio.Server(httpsServer);
+const io = new socketio.Server(httpsServer, {
+  cors: {
+    origin: '*',
+    methods: ['GET', 'POST'],
+  },
+});
 
 io.on('connection', (...params) => {
   console.log(params);
